@@ -1,7 +1,20 @@
+import sys
+input = sys.stdin.readline
 T = int(input())
 
 for _ in range(T):
-    i = input()
-    while i.find('()') != -1:
-        i = i.replace('()', '')
-    print('YES' if len(i) == 0 else 'NO')
+	a = input()
+	stack = 0
+	for i in a:
+		if i == '(':
+			stack +=1
+		elif i == ')':
+			stack -=1
+			
+		if stack < 0:
+			break
+			
+	if stack == 0:
+		print('YES')
+	else:
+		print('NO')
